@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Sembako Wida - Sembako Berkualitas dengan Harga Terjangkau</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c5530;
+            --secondary: #4a7c59;
+            --accent: #e6a400;
+            --light: #f8f9fa;
+            --dark: #343a40;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .navbar {
+            background-color: var(--primary);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: white !important;
+            font-size: 1.5rem;
+        }
+        
+        .navbar-nav .nav-link {
+            color: rgba(255,255,255,0.9) !important;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: white !important;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(44, 85, 48, 0.8), rgba(44, 85, 48, 0.9)), url('fotosembako.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .btn-whatsapp {
+            background-color: #25D366;
+            border: none;
+            color: white;
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            color: white;
+        }
+        
+        .section-title {
+            color: var(--primary);
+            font-weight: 700;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto;
+            border-radius: 2px;
+        }
+        
+        .feature-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+            text-align: center;
+            padding: 30px 20px;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .product-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+            height: 100%;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            height: 200px;
+            object-fit: cover;
+        }
+        
+        .product-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+        
+        .testimonial-card {
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .testimonial-author {
+            font-weight: 600;
+            color: var(--primary);
+        }
+        
+        .contact-section {
+            background-color: var(--light);
+            padding: 80px 0;
+        }
+        
+        .contact-form {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .form-control {
+            border-radius: 5px;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 0.2rem rgba(44, 85, 48, 0.25);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border: none;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer a:hover {
+            color: white;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+        
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+        
+        .whatsapp-float:hover {
+            background-color: #128C7E;
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+            }
+            70% {
+                box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+            }
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                font-size: 1.5rem;
+            }
+        }
+        
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .benefit-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .benefit-list i {
+            color: var(--accent);
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        
+        .promo-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 600;
+            font-size: 0.8rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/6281234567890?text=Halo%20Toko%20Sembako%20Wida,%20saya%20ingin%20bertanya%20tentang%20produk%20Anda" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-store me-2"></i>Toko Sembako Wida
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produk">Produk</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#keunggulan">Keunggulan</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimoni">Testimoni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#kontak">Kontak</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section" id="home">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h1 class="hero-title">Sembako Berkualitas dengan Harga Terjangkau</h1>
+                    <p class="hero-subtitle">Bahan makanan segar dan kebutuhan sehari-hari tersedia lengkap hanya di Toko Sembako Wida</p>
+                    <a href="https://wa.me/6281234567890?text=Halo%20Toko%20Sembako%20Wida,%20saya%20ingin%20memesan%20sembako" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan via WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Keunggulan Section -->
+    <section class="py-5" id="keunggulan">
+        <div class="container">
+            <h2 class="section-title">Mengapa Memilih Toko Sembako Wida?</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h4>Bahan Segar & Berkualitas</h4>
+                        <p>Kami memastikan semua produk sembako yang kami jual dalam kondisi segar dan berkualitas terbaik.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <h4>Harga Terjangkau</h4>
+                        <p>Dapatkan harga kompetitif dengan kualitas terjamin. Kami memberikan harga terbaik untuk pelanggan setia.</p>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shipping-fast"></i>
+                        </div>
+                        <h4>Pengiriman Cepat</h4>
+                        <p>Pesanan Anda akan kami proses dengan cepat dan dikirim tepat waktu ke lokasi Anda.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk Section -->
+    <section class="py-5 bg-light" id="produk">
+        <div class="container">
+            <h2 class="section-title">Produk Unggulan Kami</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="fotoberas.jpg" class="card-img-top product-img" alt="Beras Premium">
+                            <div class="promo-badge">Hemat 10%</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Beras Premium</h5>
+                            <p class="card-text">Beras kualitas terbaik dengan tekstur pulen dan aroma wangi.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">Rp 12.500/kg</span>
+                                <a href="https://wa.me/62089516429434?text=Saya%20ingin%20memesan%20Beras%20Premium" class="btn btn-primary btn-sm" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <div class="position-relative">
+                            <img src="fotominyak.jpg" class="card-img-top product-img" alt="Minyak Goreng">
+                            <div class="promo-badge">Gratis Ongkir</div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">Minyak Goreng</h5>
+                            <p class="card-text">Minyak goreng kemasan berkualitas, bebas kolesterol dan tahan lama.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">Rp 18.000/liter</span>
+                                <a href="https://wa.me/62089516429434?text=Saya%20ingin%20memesan%20Minyak%20Goreng" class="btn btn-primary btn-sm" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="product-card">
+                        <img src="fotogula.jpg" class="card-img-top product-img" alt="Gula Pasir">
+                        <div class="card-body">
+                            <h5 class="card-title">Gula Pasir</h5>
+                            <p class="card-text">Gula pasir pilihan dengan tingkat kemanisan yang pas untuk berbagai kebutuhan.</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="product-price">Rp 14.000/kg</span>
+                                <a href="https://wa.me/62089516429434?text=Saya%20ingin%20memesan%20Gula%20Pasir" class="btn btn-primary btn-sm" target="_blank">Pesan</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-4">
+                <a href="https://wa.me/6281234567890?text=Saya%20ingin%20melihat%20daftar%20produk%20lengkap%20Toko%20Sembako%20Wida" class="btn btn-primary" target="_blank">Lihat Semua Produk</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimoni Section -->
+    <section class="py-5" id="testimoni">
+        <div class="container">
+            <h2 class="section-title">Apa Kata Pelanggan Kami?</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Saya sudah langganan belanja di Toko Sembako Wida lebih dari 2 tahun. Barang selalu fresh dan harganya bersaing. Pelayanannya juga ramah!"</p>
+                        <div class="testimonial-author">- Ibu Siti, Pelanggan Setia</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="testimonial-card">
+                        <p class="testimonial-text">"Pengiriman cepat dan packing rapi. Beras yang saya pesan kualitasnya selalu bagus. Recommended banget!"</p>
+                        <div class="testimonial-author">- Bapak Ahmad, Pelanggan</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-5 bg-primary text-white">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <h3>Ready to Order? Pesan Sekarang!</h3>
+                    <p>Dapatkan produk sembako berkualitas dengan harga terbaik. Pesan via WhatsApp untuk respon cepat.</p>
+                </div>
+                <div class="col-md-4 text-md-end">
+                    <a href="https://wa.me/6281234567890?text=Halo%20Toko%20Sembako%20Wida,%20saya%20ingin%20memesan%20sembako" class="btn btn-whatsapp" target="_blank">
+                        <i class="fab fa-whatsapp"></i> Pesan Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak Section -->
+    <section class="contact-section" id="kontak">
+        <div class="container">
+            <h2 class="section-title">Hubungi Kami</h2>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="mb-4">
+                        <h4>Informasi Kontak</h4>
+                        <p><i class="fas fa-map-marker-alt me-2"></i> Jl. Pahlawan No. 123, Bogor</p>
+                        <p><i class="fas fa-phone me-2"></i> (+62)89516429434</p>
+                        <p><i class="fab fa-whatsapp me-2"></i> 089516429434</p>
+                        <p><i class="fas fa-envelope me-2"></i> widafitria116@gmail.com</p>
+                    </div>
+                    <div>
+                        <h4>Jam Operasional</h4>
+                        <p>Senin - Jumat: 08.00 - 20.00 WIB</p>
+                        <p>Sabtu - Minggu: 08.00 - 17.00 WIB</p>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form">
+                      <h4 class="mb-4">Formulir Pertanyaan</h4>
+                        <form id="contactForm">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" placeholder="Nama Lengkap" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="email" class="form-control" placeholder="Alamat Email" required>
+                            </div>
+                            <div class="mb-3">
+                                <input type="tel" class="form-control" placeholder="Nomor WhatsApp" required>
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" rows="4" placeholder="Pertanyaan atau Pesan" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Kirim Pertanyaan</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5>Toko Sembako Wida</h5>
+                    <p>Menyediakan berbagai kebutuhan sembako dengan kualitas terbaik dan harga terjangkau.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h5>Menu</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#produk">Produk</a></li>
+                        <li><a href="#keunggulan">Keunggulan</a></li>
+                        <li><a href="#testimoni">Testimoni</a></li>
+                        <li><a href="#kontak">Kontak</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Produk</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Beras & Gabah</a></li>
+                        <li><a href="#">Minyak Goreng</a></li>
+                        <li><a href="#">Gula & Garam</a></li>
+                        <li><a href="#">Bumbu Dapur</a></li>
+                        <li><a href="#">Lainnya</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h5>Kontak</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Bogor, Indonesia</li>
+                        <li><i class="fas fa-phone me-2"></i> (+62)89516929434</li>
+                        <li><i class="fab fa-whatsapp me-2"></i> 0895-1642-9434</li>
+                    </ul>
+                </div>
+            </div>
+            <hr>
+            <div class="text-center">
+                <p>&copy; 2025 Toko Sembako Wida</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Smooth scroll untuk navigasi
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data form
+            const name = this.querySelector('input[type="text"]').value;
+            const email = this.querySelector('input[type="email"]').value;
+            const phone = this.querySelector('input[type="tel"]').value;
+            const message = this.querySelector('textarea').value;
+            
+            // Redirect ke WhatsApp dengan pesan
+            const whatsappMessage = `Halo Toko Sembako Wida, saya ${name}. Saya ingin bertanya: ${message}. Email: ${email}, Telepon: ${phone}`;
+            const encodedMessage = encodeURIComponent(whatsappMessage);
+            window.open(`https://wa.me/6289516429434?text=${encodedMessage}`, '_blank');
+            
+            // Reset form
+            this.reset();
+            
+            // Tampilkan alert
+            alert('Terima kasih! Anda akan diarahkan ke WhatsApp untuk mengirim pesan.');
+        });
+        
+        // Animasi scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.padding = '10px 0';
+                navbar.style.backgroundColor = 'rgba(44, 85, 48, 0.95)';
+            } else {
+                navbar.style.padding = '15px 0';
+                navbar.style.backgroundColor = 'var(--primary)';
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
